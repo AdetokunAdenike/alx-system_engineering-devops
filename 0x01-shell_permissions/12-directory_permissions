@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir -m my_dir
+chmod -m mkdir my_dir
