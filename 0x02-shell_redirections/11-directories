@@ -1,0 +1,2 @@
+#!/bin/baah
+find . -type d ! -path . | wc -l
