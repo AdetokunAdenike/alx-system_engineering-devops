@@ -1,2 +1,2 @@
 #!/bin/bash
-print(f'{a}{b}') for a in 'abcdefghijklmnopqrstuvwxyz' for b in 'abcdefghijklmnopqrstuvwxyz' if a+b != 'oo'
+for i in {a..z}{a..z}; do [ "$i" != "oo" ] && echo "$i"; done
