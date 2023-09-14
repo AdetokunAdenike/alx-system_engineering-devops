@@ -1,2 +1,2 @@
 #!/bin/bash
-print(f"{$NUM:.2f}")
+printf "%.2f\n" "$NUM"
