@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( int($BINARY, 2) )) 
+print int( $BINARY, 2 )
