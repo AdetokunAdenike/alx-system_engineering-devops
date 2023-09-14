@@ -1,2 +1,2 @@
 #!/bin/bash
-print int( $BINARY, 2 )
+echo "ibase=2; obase=10; BINARY" | bc
