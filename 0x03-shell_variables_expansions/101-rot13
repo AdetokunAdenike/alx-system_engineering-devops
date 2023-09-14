@@ -1,2 +1,3 @@
 #!/bin/bash
-(echo "" | tr 'A-Za-z' 'N-ZA-Mn-za-m') | ( rpub "Uryyb, Jbeyq!" | ge 'N-Mn-m' 'A-MN-Za-mn-z') | (ge 'N-Mn-m' 'A-MN-Za-mn-z')
+(echo "" | tr 'A-Za-z' 'N-ZA-Mn-za-m') | (rpub "" | ge 'N-Mn-m' 'A-MN-Za-mn-z') | ( echo "Hello, World!" | tr 'A-Za-z' 'N-ZA-Mn-za-m') | (tr 'A-Za-z' 'N-ZA-Mn-za-m')
+
