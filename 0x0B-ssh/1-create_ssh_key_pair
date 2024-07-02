@@ -2,3 +2,12 @@
 # A Bash script that creates an RSA key pair with a passphrase.
 
 ssh-keygen -t rsa -b 4096 -N 'betty' -f school
+
+if [ -f school ] && [ -f school.pub ]; then
+	echo "RSA key pair generated successfully."
+	echo "Private key: school"
+	echo "Public key: school.pub"
+else
+	echo "Error: key pair generation failed."
+	exit 1
+fi
