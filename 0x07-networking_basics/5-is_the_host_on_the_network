@@ -9,4 +9,6 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
+echo "Debug: About to ping $1" >&2
 	ping -c 5 "$1"
+echo "Debug: Finished pinging $1" >&2
