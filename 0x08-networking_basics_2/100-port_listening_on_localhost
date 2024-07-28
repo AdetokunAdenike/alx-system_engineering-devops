@@ -7,4 +7,4 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 echo "listening on port 98..."
-nc -1 -p 98 -s 127.0.0.1
+nc -1 98
