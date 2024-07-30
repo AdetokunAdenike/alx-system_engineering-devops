@@ -1,44 +1,32 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
-This script retrives and displays the TODO list progress of an employee
-    gitven their employee ID using a REST API.
+This script retrieves and displays the TODO list progress of
+    an employee given their employee ID using a REST API.
+Returns to-do list information for a given employee ID.
 """
-
 import requests
 import sys
 
-def main():
+
+if __name__ == "__main__":
+    # Base URL for the JSONPlaceholder API
     url = "https://jsonplaceholder.typicode.com/"
 
-    if len(sys.argv) != 2:
-        print("Usage: python <script> <employee_id>")
-        sys.exit(1)
-        
-    try:
-        employee_id = int(sys.argv[1])
-    except ValueError:
-        print("Employee ID must be an integer")
-        sys.exit(1)
+    # Get the employee information using the provided employee ID
+    employee_id = sys.argv[1]
+    user = requests.get(url + "users/{}".format(employee_id)).json()
 
-    user_response = requests.get(url + "users/{}".format(employee_id))
-    if user_response.status_code != 200:
-        print("Employee not found")
-        sys.exit(1)
-
-    user = user_response.json()
-    employee_name = user.get("name")
-
+    # Get the to-do list for the employee using the provided employee ID
     params = {"userId": employee_id}
-    todos_response = requests.get(url + "todos", params=params)
-    if todos_response.status_code != 200:
-        print("Todos not found")
-        sys.exit(1)
+    todos = requests.get(url + "todos", params).json()
 
-    todo = todos_response.json()
+    # Filter completed tasks and count them
+    completed = [t.get("title") for t in todos if t.get("completed") is True]
 
-    completed = [todo.get("title") for todo in todos if todo.get("completed")]
+    # Print the employee's name and the number of completed tasks
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completed), len(todos)))
 
-    print("Employee {} is done with tasks({}/{}:)".format(employee.name, len(completed), len(todos)))
+    # Print the completed tasks one by one with indentation
+    [print("\t {}".format(complete)) for complete in completed]
 
-    for complete in completed:
-        print("\t {}".format(complete))
