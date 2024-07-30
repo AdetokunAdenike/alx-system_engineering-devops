@@ -17,7 +17,7 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
 
     # Retrieve the  user information from the API and
-    #convert the response to a JSON object
+    # convert the response to a JSON object
     user = requests.get(url + "users/{}".format(user_id)).json()
 
     # Extract username from  user data
