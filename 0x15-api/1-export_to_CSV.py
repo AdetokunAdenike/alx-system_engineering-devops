@@ -7,26 +7,26 @@ import requests
 import sys
 
 
-def main():
-# Get the user ID from the command-line arguments provided to the script
+if __name__ == "__main__":
+    # Retrieve the user ID from the command-line arguments passed to the script.
     user_id = sys.argv[1]
 
-    # Define the base URL for the JSON API
+    # Specify the base URL for the JSON API
     url = "https://jsonplaceholder.typicode.com/"
 
-    # Fetch user information from the API and
+    # Retrieve the  user information from the API and
     #   convert the response to a JSON object
     user = requests.get(url + "users/{}".format(user_id)).json()
 
-    # Extract the username from the user data
+    # Extract username from  user data
     username = user.get("username")
 
-    # Fetch the to-do list items associated with the
-    #   given user ID and convert the response to a JSON object
+    # Retrieve the to-do list items for the specified user ID
+    # and convert the response to a JSON object.
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-    # Use list comprehension to iterate over the to-do list items
-    # Write each item's details (user ID, username, completion status,
+    # Use list comprehension to iterate through the to-do list items and
+    # write each item's details (user ID, username, completion status,
     #   and title) as a row in the CSV file
     with open("{}.csv".format(user_id), "w", newline="") as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
