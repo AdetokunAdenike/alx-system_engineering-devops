@@ -1,50 +1,37 @@
 #!/usr/bin/python3
-"""
-Exports to-do list data for all employees in JSON format.
-
-Fetches user and to-do list information from JSONPlaceholder API
-and writes it to 'todo_all_employees.json'. Each entry includes
-task details, completion status, and the associated username.
-"""
-
+"""Fetches and exports to-do tasks for all employees to a JSON file."""
 import json
 import requests
 
-def fetch_user_data():
-"""
-Retrieve user details and their to-do lists for all employees.
-
-Returns:
-    dict: Dictionary where keys are user IDs and values are lists
-              of tasks with details, completion status, and username.
-"""
+def fetch_all_tasks():
+    """
+    Fetches to-do tasks for all employees and formats them into a dictionary.
+    
+    Returns:
+        dict: A dictionary where keys are user IDs and values are lists of
+              dictionaries containing task details, completion status, and username.
+    """
     base_url = "https://jsonplaceholder.typicode.com/"
-
-    # Fetch all users (employees)
-    users = requests.get(f"{base_url}users").json()
-
-    # Dictionary for all to-do lists
-    data_to_export = {}
-    for user in users:
-        user_id = user["id"]
-        user_url = f"{base_url}todos?userId={user_id}"
-        todo_list = requests.get(user_url).json()
-
-        data_to_export[user_id] = [
+    employees = requests.get(f"{base_url}users").json()
+    
+    tasks_by_user = {}
+    for employee in employees:
+        user_id = employee["id"]
+        todos_url = f"{base_url}todos"
+        todos = requests.get(todos_url, params={"userId": user_id}).json()
+        
+        tasks_by_user[user_id] = [
             {
-                "task": todo.get("title"),
-                "completed": todo.get("completed"),
-                "username": user.get("username")
-            }
-            for todo in todo_list
+                "username": employee["username"],
+                "task": todo["title"],
+                "completed": todo["completed"]
+            } for todo in todos
         ]
-
-    return data_to_export
-
+    
+    return tasks_by_user
 
 if __name__ == "__main__":
-    data_to_export = fetch_user_data()
-
-    # Write data to a JSON file
-    with open("todo_all_employees.json", "w") as jsonfile:
-        json.dump(data_to_export, jsonfile, indent=4)
+    tasks_data = fetch_all_tasks()
+    
+    with open("todo_all_employees.json", "w") as file:
+        json.dump(tasks_data, file, indent=4)
