@@ -1,4 +1,4 @@
-# This Puppet manifest ensures the Apache log directory exists with the correct permissions
+# This Puppet manifest ensures the Apache log directory exists with the right permissions
 
 file { '/var/log/apache2':
   ensure => directory,
