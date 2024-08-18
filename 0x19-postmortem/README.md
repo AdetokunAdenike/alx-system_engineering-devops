@@ -1,8 +1,8 @@
+![Postmortem_technical](Images/postmortem_technical.webp)
+
 # Issue Summary
 
 ## Postmortem: Apache 500 Internal Server Error Debugging and Resolution
-
-![Postmortem_technical](Images/postmortem_technical.webp)
 
 **Issue Summary:**
 
