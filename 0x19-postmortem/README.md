@@ -1,7 +1,5 @@
 ## Issue Summary
 
----
-
 ## Postmortem: Apache 500 Internal Server Error Debugging and Resolution
 
 **Issue Summary:**
