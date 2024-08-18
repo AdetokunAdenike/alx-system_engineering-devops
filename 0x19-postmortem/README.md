@@ -18,12 +18,12 @@
 - **07:06 GMT:** Applied the fix and reloaded the server configuration.
 - **07:08 GMT:** Verified resolution by running `curl` to confirm a successful response (HTTP 200 OK).
 
-**Root Cause and Resolution:**
+## Root Cause and Resolution:
 
 - **Root Cause Detail:** The 500 Internal Server Error was due to a typo in the PHP file configuration, where "phpp" was used instead of "php," leading to PHP script processing failures.
 - **Resolution Detail:** I corrected the typo in the PHP file, updating the reference from "phpp" to "php." The fix was automated using Puppet to ensure proper configuration deployment and verification.
 
-**Corrective and Preventative Measures:**
+## Corrective and Preventative Measures:
 
 - **Improvements/Fixes:**
   - Implement a validation step to catch configuration errors before deployment.
@@ -40,5 +40,3 @@
   4. **Update Documentation:**
      - Document the issue and the resolution steps.
      - Provide guidelines for validating PHP configurations to avoid similar issues.
-
-This postmortem summarizes the process of detecting and resolving the Apache 500 error, highlights the resolution steps, and outlines preventative measures to avoid future occurrences.
