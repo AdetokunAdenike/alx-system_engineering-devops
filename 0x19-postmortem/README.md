@@ -23,6 +23,10 @@
 - **Root Cause Detail:** The 500 Internal Server Error was due to a typo in the PHP file configuration, where "phpp" was used instead of "php," leading to PHP script processing failures.
 - **Resolution Detail:** I corrected the typo in the PHP file, updating the reference from "phpp" to "php." The fix was automated using Puppet to ensure proper configuration deployment and verification.
 
+---
+
+---
+
 # Corrective and Preventative Measures:
 
 ## Improvements/Fixes:
