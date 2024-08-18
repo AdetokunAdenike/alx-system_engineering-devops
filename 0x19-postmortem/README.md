@@ -2,6 +2,8 @@
 
 ## Postmortem: Apache 500 Internal Server Error Debugging and Resolution
 
+(Images/postmortem_technical.webp)
+
 **Issue Summary:**
 
 - **Duration of the Outage:** March 24, 2017, from 07:00 GMT to 07:08 GMT.
