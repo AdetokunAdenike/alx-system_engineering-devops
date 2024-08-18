@@ -47,3 +47,4 @@
 4. **Update Documentation:**
    - Document the issue and the resolution steps.
    - Provide guidelines for validating PHP configurations to avoid similar issues.
+     ![Postmortem_flowchart](Images/postmortem_flowchart.webp)
