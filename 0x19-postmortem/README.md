@@ -2,7 +2,7 @@
 
 ## Postmortem: Apache 500 Internal Server Error Debugging and Resolution
 
-(Images/postmortem_technical.webp)
+!(./postmortem_technical.webp)
 
 **Issue Summary:**
 
